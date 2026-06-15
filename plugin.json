@@ -1,0 +1,25 @@
+{
+  "name": "action1",
+  "display_name": "Action1 Asset Sync",
+  "version": "1.0.0",
+  "description": "Syncs managed endpoints from Action1 RMM into the asset manager. Runs on a configurable schedule and supports manual sync.",
+  "author": "monke-helpdesk",
+  "icon": "",
+  "type": ["page", "webhook"],
+  "pages": [
+    {
+      "label": "Action1 Sync",
+      "href": "/plugin/action1",
+      "perm": "settings_view"
+    }
+  ],
+  "hooks": ["system.startup"],
+  "config_schema": [
+    { "key": "server",                "label": "Server Region (eu or us)",            "type": "text" },
+    { "key": "client_id",             "label": "Client ID",                           "type": "text",     "required": true },
+    { "key": "client_secret",         "label": "Client Secret",                       "type": "password", "required": true },
+    { "key": "org_id",                "label": "Organization ID",                     "type": "text",     "required": true },
+    { "key": "endpoint_groups",       "label": "Endpoint Groups (comma-separated)",   "type": "text" },
+    { "key": "sync_interval_minutes", "label": "Sync Interval (minutes, default 240)","type": "text" }
+  ]
+}
